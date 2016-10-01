@@ -5,23 +5,23 @@ consumes:
 - application/x-gob
 definitions:
   GoaMyexampleBottle:
-    description: A bottle of wine (default view)
+    description: ワインボトル (default view)
     example:
       href: Voluptates non excepturi.
       id: 6.9965735e+18
       name: Tenetur et saepe ratione debitis enim sapiente.
     properties:
       href:
-        description: API href for making requests on the bottle
+        description: このボトルにリクエストを送るためのAPIのhref
         example: Voluptates non excepturi.
         type: string
       id:
-        description: Unique bottle ID
+        description: 唯一なボトルID
         example: 6.9965735e+18
         format: int64
         type: integer
       name:
-        description: Name of wine
+        description: ワインの名前
         example: Tenetur et saepe ratione debitis enim sapiente.
         type: string
     required:
@@ -69,8 +69,8 @@ definitions:
     type: object
 host: localhost:8080
 info:
-  description: A simple goa service
-  title: The virtual wine cellar
+  description: シンプルなgoaサービスの例
+  title: 仮想ワインセラー
   version: ""
 paths:
   /bottles/{bottleID}:
@@ -78,7 +78,7 @@ paths:
       description: 指定されたIDのボトルを取得する
       operationId: bottle#show
       parameters:
-      - description: Bottle ID
+      - description: ボトル ID
         in: path
         name: bottleID
         required: true

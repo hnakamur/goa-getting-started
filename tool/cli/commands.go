@@ -20,7 +20,7 @@ import (
 type (
 	// ShowBottleCommand is the command line data structure for the show action of bottle
 	ShowBottleCommand struct {
-		// Bottle ID
+		// ボトル ID
 		BottleID    int
 		PrettyPrint bool
 	}
@@ -285,5 +285,5 @@ func (cmd *ShowBottleCommand) Run(c *client.Client, args []string) error {
 // RegisterFlags registers the command flags with the command line.
 func (cmd *ShowBottleCommand) RegisterFlags(cc *cobra.Command, c *client.Client) {
 	var bottleID int
-	cc.Flags().IntVar(&cmd.BottleID, "bottleID", bottleID, `Bottle ID`)
+	cc.Flags().IntVar(&cmd.BottleID, "bottleID", bottleID, `ボトル ID`)
 }

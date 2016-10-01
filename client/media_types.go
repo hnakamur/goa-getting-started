@@ -17,15 +17,15 @@ import (
 	"net/http"
 )
 
-// A bottle of wine (default view)
+// ワインボトル (default view)
 //
 // Identifier: application/vnd.goa.myexample.bottle+json; view=default
 type GoaMyexampleBottle struct {
-	// API href for making requests on the bottle
+	// このボトルにリクエストを送るためのAPIのhref
 	Href string `form:"href" json:"href" xml:"href"`
-	// Unique bottle ID
+	// 唯一なボトルID
 	ID int `form:"id" json:"id" xml:"id"`
-	// Name of wine
+	// ワインの名前
 	Name string `form:"name" json:"name" xml:"name"`
 }
 

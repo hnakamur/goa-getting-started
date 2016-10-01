@@ -6,9 +6,9 @@ import (
 )
 
 var _ = API("cellar", func() { // API defines the microservice endpoint and
-	Title("The virtual wine cellar")    // other global properties. There should be one
-	Description("A simple goa service") // and exactly one API definition appearing in
-	Scheme("http")                      // the design.
+	Title("仮想ワインセラー")             // other global properties. There should be one
+	Description("シンプルなgoaサービスの例") // and exactly one API definition appearing in
+	Scheme("http")                // the design.
 	Host("localhost:8080")
 })
 
@@ -20,7 +20,7 @@ var _ = Resource("bottle", func() { // Resources group related API endpoints
 		Description("指定されたIDのボトルを取得する") // with its path, parameters (both path
 		Routing(GET("/:bottleID"))      // parameters and querystring values) and payload
 		Params(func() {                 // (shape of the request body).
-			Param("bottleID", Integer, "Bottle ID")
+			Param("bottleID", Integer, "ボトル ID")
 		})
 		Response(OK)       // Responses define the shape and status code
 		Response(NotFound) // of HTTP responses.
@@ -29,11 +29,11 @@ var _ = Resource("bottle", func() { // Resources group related API endpoints
 
 // BottleMedia defines the media type used to render bottles.
 var BottleMedia = MediaType("application/vnd.goa.myexample.bottle+json", func() {
-	Description("A bottle of wine")
+	Description("ワインボトル")
 	Attributes(func() { // Attributes define the media type shape.
-		Attribute("id", Integer, "Unique bottle ID")
-		Attribute("href", String, "API href for making requests on the bottle")
-		Attribute("name", String, "Name of wine")
+		Attribute("id", Integer, "唯一なボトルID")
+		Attribute("href", String, "このボトルにリクエストを送るためのAPIのhref")
+		Attribute("name", String, "ワインの名前")
 		Required("id", "href", "name")
 	})
 	View("default", func() { // View defines a rendering of the media type.
