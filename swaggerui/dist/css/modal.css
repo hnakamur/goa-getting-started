@@ -1,0 +1,63 @@
+/* Remove button margins in Webkit */
+* {
+  margin: 0;
+  padding: 0;
+}
+/* Remove button padding in FF */
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+form#prompt {
+  /* style */
+  background-color: #333;
+  padding: 5px;
+}
+.center {
+  margin: auto;
+  width: 500px;
+  font-size: 1.2em;
+  color: #444;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 30px;
+}
+.right {
+  float: right;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+}
+form#prompt input {
+  /* style */
+  border: none;
+  padding: 7px;
+  /* default input size isn't wide enough */
+  width: 100%;
+  /* keeps input from overflowing its container */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /* prevents input from flowing behind the button */
+  padding-right: 60px;
+  /* line-height (which determines height) renders slightly different across browsers.
+    But specifiying a fixed line-height: 14px caused a 1px difference in IE.
+    I found it easier just to lock in the height */
+  height: 38px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+form button {
+  /* style */
+  background-color: #56BAFD;
+  border: none;
+  padding: 7px;
+  /* to match input height above */
+  height: 38px;
+  /* removes the box from DOM */
+  float: right;
+  /* alternative to negative margin-top,
+    which seems to hide my button behind the input */
+  position: relative;
+  top: -38px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
