@@ -8,7 +8,7 @@ definitions:
     description: ワインボトル (default view)
     example:
       href: Voluptates non excepturi.
-      id: 6.9965735e+18
+      id: 6996573674690312810
       name: Tenetur et saepe ratione debitis enim sapiente.
     properties:
       href:
@@ -17,7 +17,7 @@ definitions:
         type: string
       id:
         description: 唯一なボトルID
-        example: 6.9965735e+18
+        example: 6996573674690312810
         format: int64
         type: integer
       name:
@@ -37,7 +37,7 @@ definitions:
       detail: Value of ID must be an integer
       id: 3F1FKVRR
       meta:
-        timestamp: 1.458609e+09
+        timestamp: 1458609066
       status: "400"
     properties:
       code:
@@ -58,7 +58,7 @@ definitions:
         description: a meta object containing non-standard meta-information about
           the error.
         example:
-          timestamp: 1.458609e+09
+          timestamp: 1458609066
         type: object
       status:
         description: the HTTP status code applicable to this problem, expressed as
