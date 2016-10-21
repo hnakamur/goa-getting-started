@@ -6,9 +6,15 @@ import (
 )
 
 var _ = API("cellar", func() { // API defines the microservice endpoint and
-	Title("仮想ワインセラー")             // other global properties. There should be one
-	Description("シンプルなgoaサービスの例") // and exactly one API definition appearing in
-	Scheme("http")                // the design.
+	Title(`{
+		"en":"The virtual wine cellar",
+		"ja":"仮想ワインセラー"
+	}`) // other global properties. There should be one
+	Description(`{
+		"en":"A simple goa service",
+		"ja":"シンプルなgoaサービスの例"
+	}`) // and exactly one API definition appearing in
+	Scheme("http") // the design.
 	Host("localhost:8080")
 })
 
@@ -17,23 +23,30 @@ var _ = Resource("bottle", func() { // Resources group related API endpoints
 	DefaultMedia(BottleMedia) // services.
 
 	Action("show", func() { // Actions define a single API endpoint together
-		Description("指定されたIDのボトルを取得する") // with its path, parameters (both path
-		Routing(GET("/:bottleID"))      // parameters and querystring values) and payload
-		Params(func() {                 // (shape of the request body).
-			Param("bottleID", Integer, "ボトル ID")
+		Description(`{
+			"en":"Retrieve bottle with given id",
+			"ja":"指定されたIDのボトルを取得する"
+		}`) // with its path, parameters (both path
+		Routing(GET("/:bottleID")) // parameters and querystring values) and payload
+		Params(func() {            // (shape of the request body).
+			Param("bottleID", Integer, `{"en":"Bottle ID","ja":"ボトル ID"}`)
 		})
 		Response(OK)       // Responses define the shape and status code
 		Response(NotFound) // of HTTP responses.
+		//Metadata("swagger:summary", `{"en":"show bottle","ja":"ボトルを表示"}`)
 	})
 })
 
 // BottleMedia defines the media type used to render bottles.
 var BottleMedia = MediaType("application/vnd.goa.myexample.bottle+json", func() {
-	Description("ワインボトル")
+	Description(`{
+		"en":"A bottle of wine",
+		"ja":"ワインボトル"
+	}`)
 	Attributes(func() { // Attributes define the media type shape.
-		Attribute("id", Integer, "唯一なボトルID")
-		Attribute("href", String, "このボトルにリクエストを送るためのAPIのhref")
-		Attribute("name", String, "ワインの名前")
+		Attribute("id", Integer, `{"en":"ID of bottle","ja":"唯一なボトルID"}`)
+		Attribute("href", String, `{"en":"API href of bottle","ja":"このボトルにリクエストを送るためのAPIのhref"}`)
+		Attribute("name", String, `{"en":"Name of wine","ja":"ワインの名前"}`)
 		Required("id", "href", "name")
 	})
 	View("default", func() { // View defines a rendering of the media type.
