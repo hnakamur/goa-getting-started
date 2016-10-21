@@ -5,23 +5,23 @@ consumes:
 - application/x-gob
 definitions:
   GoaMyexampleBottle:
-    description: A bottle of wine (default view)
+    description: ワインボトル (default view)
     example:
       href: Voluptates non excepturi.
-      id: 6996573674690312810
+      id: 6.9965735e+18
       name: Tenetur et saepe ratione debitis enim sapiente.
     properties:
       href:
-        description: API href of bottle
+        description: このボトルにリクエストを送るためのAPIのhref
         example: Voluptates non excepturi.
         type: string
       id:
-        description: ID of bottle
-        example: 6996573674690312810
+        description: 唯一なボトルID
+        example: 6.9965735e+18
         format: int64
         type: integer
       name:
-        description: Name of wine
+        description: ワインの名前
         example: Tenetur et saepe ratione debitis enim sapiente.
         type: string
     required:
@@ -37,7 +37,7 @@ definitions:
       detail: Value of ID must be an integer
       id: 3F1FKVRR
       meta:
-        timestamp: 1458609066
+        timestamp: 1.458609e+09
       status: "400"
     properties:
       code:
@@ -58,7 +58,7 @@ definitions:
         description: a meta object containing non-standard meta-information about
           the error.
         example:
-          timestamp: 1458609066
+          timestamp: 1.458609e+09
         type: object
       status:
         description: the HTTP status code applicable to this problem, expressed as
@@ -69,20 +69,16 @@ definitions:
     type: object
 host: localhost:8080
 info:
-  description: A simple goa service
-  title: The virtual wine cellar
+  description: シンプルなgoaサービスの例
+  title: 仮想ワインセラー
   version: ""
 paths:
   /bottles/{bottleID}:
     get:
-      description: Retrieve bottle with given id
+      description: 指定されたIDのボトルを取得する
       operationId: bottle#show
       parameters:
-      - description: Bottle ID
-        in: path
-        name: bottleID
-        required: true
-        type: integer
+      - description: ボトル ID
       responses:
         "200":
           description: OK
@@ -92,11 +88,12 @@ paths:
           description: Not Found
       schemes:
       - http
-      summary: show bottle
+      summary: ボトルを表示
       tags:
       - bottle
   /swagger.json:
     get:
+      description: null
       operationId: swagger#/swagger.json
       responses:
         "200":
@@ -111,10 +108,6 @@ paths:
       operationId: swagger#/swaggerui/*filepath
       parameters:
       - description: Relative file path
-        in: path
-        name: filepath
-        required: true
-        type: string
       responses:
         "200":
           description: File downloaded
