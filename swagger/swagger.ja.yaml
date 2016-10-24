@@ -5,23 +5,23 @@ consumes:
 - application/x-gob
 definitions:
   GoaMyexampleBottle:
-    description: A bottle of wine (default view)
+    description: ワインボトル (デフォルトビュー)
     example:
       href: Voluptates non excepturi.
       id: 6996573674690312810
       name: Tenetur et saepe ratione debitis enim sapiente.
     properties:
       href:
-        description: API href of bottle
+        description: このボトルにリクエストを送るための API の href
         example: Voluptates non excepturi.
         type: string
       id:
-        description: ID of bottle
+        description: ユニークなボトル ID
         example: 6996573674690312810
         format: int64
         type: integer
       name:
-        description: Name of wine
+        description: ワインの名前
         example: Tenetur et saepe ratione debitis enim sapiente.
         type: string
     required:
@@ -31,7 +31,7 @@ definitions:
     title: 'Mediatype identifier: application/vnd.goa.myexample.bottle+json'
     type: object
   error:
-    description: Error response media type (default view)
+    description: メディアタイプのエラーレスポンス (デフォルトビュー)
     example:
       code: invalid_value
       detail: Value of ID must be an integer
@@ -41,48 +41,41 @@ definitions:
       status: "400"
     properties:
       code:
-        description: an application-specific error code, expressed as a string value.
+        description: アプリケーション固有の文字列で表されたエラーコード。
         example: invalid_value
         type: string
       detail:
-        description: a human-readable explanation specific to this occurrence of the
-          problem.
+        description: 問題の今回の発生に固有な人間が読める形式の説明。
         example: Value of ID must be an integer
         type: string
       id:
-        description: a unique identifier for this particular occurrence of the problem.
+        description: 問題の今回の発生に対するユニークな識別子。
         example: 3F1FKVRR
         type: string
       meta:
         additionalProperties: true
-        description: a meta object containing non-standard meta-information about
-          the error.
+        description: エラーについての非標準なメタ情報を含むメタオブジェクト。
         example:
           timestamp: 1458609066
         type: object
       status:
-        description: the HTTP status code applicable to this problem, expressed as
-          a string value.
+        description: この問題に対応する文字列で表された HTTP ステータスコード。
         example: "400"
         type: string
     title: 'Mediatype identifier: application/vnd.goa.error'
     type: object
 host: localhost:8080
 info:
-  description: A simple goa service
-  title: The virtual wine cellar
+  description: シンプルな goa サービスの例
+  title: 仮想ワインセラー
   version: ""
 paths:
   /bottles/{bottleID}:
     get:
-      description: Retrieve bottle with given id
+      description: 指定されたIDのボトルを取得する
       operationId: bottle#show
       parameters:
-      - description: Bottle ID
-        in: path
-        name: bottleID
-        required: true
-        type: integer
+      - description: ボトル ID
       responses:
         "200":
           description: OK
@@ -92,11 +85,12 @@ paths:
           description: Not Found
       schemes:
       - http
-      summary: show bottle
+      summary: ボトルを表示
       tags:
       - bottle
   /swagger.json:
     get:
+      description: null
       operationId: swagger#/swagger.json
       responses:
         "200":
@@ -110,23 +104,19 @@ paths:
     get:
       operationId: swagger#/swaggerui/*filepath
       parameters:
-      - description: Relative file path
-        in: path
-        name: filepath
-        required: true
-        type: string
+      - description: ファイルの相対パス
       responses:
         "200":
-          description: File downloaded
+          description: ファイルはダウンロードされました
           schema:
             type: file
         "404":
-          description: File not found
+          description: ファイルが見つかりません
           schema:
             $ref: '#/definitions/error'
       schemes:
       - http
-      summary: Download swaggerui/dist
+      summary: swaggerui/dist をダウンロード
 produces:
 - application/json
 - application/xml

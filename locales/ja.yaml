@@ -1,0 +1,47 @@
+---
+definitions:
+  GoaMyexampleBottle:
+    description: ワインボトル (デフォルトビュー)
+    properties:
+      href:
+        description: このボトルにリクエストを送るための API の href
+      id:
+        description: ユニークなボトル ID
+      name:
+        description: ワインの名前
+  error:
+    description: メディアタイプのエラーレスポンス (デフォルトビュー)
+    properties:
+      code:
+        description: アプリケーション固有の文字列で表されたエラーコード。
+      detail:
+        description: 問題の今回の発生に固有な人間が読める形式の説明。
+      id:
+        description: 問題の今回の発生に対するユニークな識別子。
+      meta:
+        description: エラーについての非標準なメタ情報を含むメタオブジェクト。
+      status:
+        description: この問題に対応する文字列で表された HTTP ステータスコード。
+info:
+  description: シンプルな goa サービスの例
+  title: 仮想ワインセラー
+paths:
+  /bottles/{bottleID}:
+    get:
+      description: 指定されたIDのボトルを取得する
+      parameters:
+      - description: ボトル ID
+      summary: ボトルを表示
+  /swagger.json:
+    get:
+      description:
+  /swaggerui/{filepath}:
+    get:
+      parameters:
+      - description: ファイルの相対パス
+      responses:
+        "200":
+          description: ファイルはダウンロードされました
+        "404":
+          description: ファイルが見つかりません
+      summary: swaggerui/dist をダウンロード
