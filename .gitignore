@@ -1,2 +1,3 @@
 goa-getting-started
 swaggerui/*.log
+/node_modules/

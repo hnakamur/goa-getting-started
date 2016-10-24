@@ -1,0 +1,23 @@
+{
+  "name": "goa-getting-started",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hnakamur/goa-getting-started.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hnakamur/goa-getting-started/issues"
+  },
+  "homepage": "https://github.com/hnakamur/goa-getting-started#readme",
+  "devDependencies": {
+    "bootprint": "^0.8.5",
+    "bootprint-swagger": "^0.13.1"
+  }
+}
